@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pensão Tia Miriam | Comida caseira com sabor de praia</title>
+<meta name="description" content="Pensão Tia Miriam — comida caseira no Recreio dos Bandeirantes. Escolha sua proteína e faça seu pedido pelo WhatsApp.">
+<style>
+:root{
+  --mar:#087c83; --mar-escuro:#075c63; --areia:#fff5df; --areia2:#f8e6c4;
+  --sol:#f2a51a; --texto:#17383b; --branco:#fff; --madeira:#8b5a35;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--texto);background:var(--areia)}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+header{position:sticky;top:0;z-index:20;background:rgba(255,250,238,.96);backdrop-filter:blur(8px);border-bottom:1px solid #ead9b9}
+.nav{max-width:1150px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:20px}
+.logo{font-weight:900;color:var(--mar);font-size:24px;line-height:.9}
+.logo small{display:block;color:var(--madeira);font-size:11px;letter-spacing:1px;margin-top:7px}
+nav{display:flex;gap:20px;font-weight:700;font-size:14px}
+nav a:hover{color:var(--mar)}
+.whats{background:#16a06f;color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:800;cursor:pointer}
+.hero{min-height:530px;display:flex;align-items:center;background:
+linear-gradient(90deg,rgba(3,47,52,.82),rgba(3,47,52,.28)),
+url('images/hero-pensao.jpg') center/cover;
+}
+.hero-inner{max-width:1150px;width:100%;margin:auto;padding:70px 22px;color:white}
+.kicker{font-weight:800;color:#ffd36a;text-transform:uppercase;letter-spacing:2px}
+h1{font-size:clamp(42px,7vw,76px);line-height:.95;margin:12px 0}
+.hero p{font-size:20px;max-width:570px;line-height:1.5}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{display:inline-block;padding:15px 22px;border-radius:999px;font-weight:800;border:0;cursor:pointer}
+.btn-primary{background:#18a878;color:white}.btn-light{background:#fff;color:var(--mar)}
+.features{max-width:1150px;margin:-35px auto 0;position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 18px}
+.feature{background:white;border-radius:18px;padding:20px;text-align:center;box-shadow:0 8px 30px #4c392016}
+.feature b{display:block;margin-bottom:6px}
+section{max-width:1150px;margin:auto;padding:70px 18px}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title h2{font-size:42px;margin:0 0 8px;color:var(--mar)}
+.section-title p{margin:0;color:#6c6860}
+.menu-note{background:var(--mar);color:white;border-radius:20px;padding:18px 22px;margin-bottom:25px;text-align:center}
+.menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 8px 25px #4c392012;display:flex;flex-direction:column}
+.card img{width:100%;height:190px;object-fit:cover}
+.card-body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{margin:0;font-size:19px}
+.price{font-size:20px;font-weight:900;color:var(--mar)}
+.card button{margin-top:auto;background:var(--sol);border:0;padding:12px;border-radius:12px;font-weight:900;cursor:pointer;color:#2b2417}
+.no-photo{height:190px;background:linear-gradient(135deg,#e9d1a7,#f7edd9);display:flex;align-items:center;justify-content:center;font-size:60px}
+.about{background:#fff;border-radius:28px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;padding:38px}
+.about h2{color:var(--mar);font-size:38px;margin-top:0}
+.about p{font-size:18px;line-height:1.7}
+footer{background:#075c63;color:white;padding:45px 18px}
+.footer-inner{max-width:1150px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer h3{margin-top:0;color:#ffd36a}
+.small{opacity:.85;line-height:1.7}
+.toast{position:fixed;right:18px;bottom:18px;background:#17383b;color:white;padding:14px 18px;border-radius:12px;display:none;z-index:50}
+@media(max-width:850px){
+ nav{display:none}.features{grid-template-columns:repeat(2,1fr)}
+ .menu-grid{grid-template-columns:repeat(2,1fr)}
+ .about{grid-template-columns:1fr}
+ .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ .hero{min-height:600px}.hero-inner{padding:55px 20px}
+ .features,.menu-grid{grid-template-columns:1fr 1fr}
+ .feature{padding:14px 8px;font-size:13px}
+ .card img,.no-photo{height:145px}.card-body{padding:12px}.card h3{font-size:16px}
+ .footer-inner{grid-template-columns:1fr}
+}
+
+.platforms{background:linear-gradient(135deg,#fffaf0,#f4e4c6);border-radius:28px;padding:38px 25px;text-align:center;margin-top:35px}
+.platforms h2{color:var(--mar);font-size:34px;margin:0 0 8px}
+.platforms p{color:#665f55;margin:0 auto 22px;max-width:650px;line-height:1.5}
+.platform-list{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.platform{background:white;border:1px solid #ead9b9;border-radius:16px;padding:16px 22px;min-width:210px;box-shadow:0 6px 18px #4c392012}
+.platform strong{display:block;font-size:19px;color:var(--mar);margin-bottom:5px}
+.platform span{font-size:13px;color:#777}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="#inicio">🌴 Pensão<br>Tia Miriam<small>COMIDA CASEIRA • PRAIA</small></a>
+    <nav><a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#sobre">Sobre nós</a><a href="#plataformas">Apps</a><a href="#empresas">Empresas</a><a href="#contato">Contato</a></nav>
+    <a class="whats" href="https://wa.me/5521960178444" target="_blank">💬 WhatsApp</a>
+  </div>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Recreio dos Bandeirantes • RJ</div>
+    <h1>Pensão<br>Tia Miriam</h1>
+    <p>Comida caseira, simples e saborosa, com aquele clima de praia que combina com surfistas, moradores e amigos.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#cardapio">🍽️ Ver cardápio</a>
+      <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&query=Estrada+do+Pontal+6330+Recreio+dos+Bandeirantes+Rio+de+Janeiro" target="_blank">📍 Como chegar</a>
+    </div>
+  </div>
+</section>
+
+<div class="features">
+  <div class="feature">🏠<b>Comida caseira</b><span>Feita com carinho</span></div>
+  <div class="feature">🌊<b>Clima de praia</b><span>Bem no Recreio</span></div>
+  <div class="feature">🍽️<b>Comida caseira</b><span>Opções variadas</span></div>
+  <div class="feature">💬<b>Peça pelo WhatsApp</b><span>Rápido e fácil</span></div>
+</div>
+
+<section id="cardapio">
+  <div class="section-title">
+    <h2>Nosso Cardápio</h2>
+    <p>Conheça algumas das opções da Pensão Tia Miriam.</p>
+  </div>
+  <div class="menu-note"><b>Todos os pratos acompanham:</b> arroz, feijão, farofa, salada crua e batata frita. <b>Macarrão é opcional.</b></div>
+  <div class="menu-grid" id="menu"></div>
+</section>
+
+<section id="pedido-antecipado">
+  <div class="about" style="background:linear-gradient(135deg,#eaf8f5,#fffaf0);text-align:center;display:block">
+    <div class="kicker">Praticidade para você</div>
+    <h2 style="margin-bottom:12px">📲 Pedido antecipado e retirada na loja</h2>
+    <p style="max-width:700px;margin:0 auto 22px">Faça seu pedido pelo WhatsApp com antecedência e depois passe na Pensão Tia Miriam para retirar. Assim, você ganha praticidade e evita esperar.</p>
+    <a class="btn btn-primary" href="https://wa.me/5521960178444?text=Ol%C3%A1%2C%20Pensão%20Tia%20Miriam!%20Gostaria%20de%20fazer%20um%20pedido%20antecipado%20para%20retirar%20na%20loja." target="_blank" rel="noopener">💬 Fazer pedido pelo WhatsApp</a>
+    <p style="margin:18px 0 0;color:#665f55;font-size:15px"><b>Retirada:</b> Estrada do Pontal, 6330 — Recreio dos Bandeirantes</p>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="about">
+    <div>
+      <div class="kicker">Comida de verdade</div>
+      <h2>Um pedacinho de casa no Recreio.</h2>
+      <p>A Pensão Tia Miriam tem aquele jeito simples e acolhedor de comida feita em casa. Um lugar para comer bem, sem complicação, depois da praia, do surf ou na correria do dia a dia.</p>
+      <p><b>Confira nossas opções e faça seu pedido pelo iFood ou 99Food.</b></p>
+    </div>
+    <div style="font-size:110px;text-align:center;background:linear-gradient(135deg,#0b7f84,#f2a51a);border-radius:25px;padding:55px 10px">🌊🍛🏄</div>
+  </div>
+</section>
+
+
+<section id="plataformas">
+  <div class="platforms">
+    <h2>Também estamos nos aplicativos 🛵</h2>
+    <p>Prefere pedir pelo aplicativo? Você também encontra a <b>Pensão Tia Miriam</b> nas plataformas <b>iFood</b> e <b>99Food</b>.</p>
+    <div class="platform-list">
+      <div class="platform">
+        <strong>🍔 iFood</strong>
+        <span>Peça diretamente pela nossa loja</span><br><br>
+        <a class="btn btn-primary" href="https://www.ifood.com.br/delivery/rio-de-janeiro-rj/pensao-tia-miriam-recreio-dos-bandeirantes/3c7b0bcc-8396-46c0-be31-b0b0f4c5fb21" target="_blank">Pedir no iFood</a>
+      </div>
+      <div class="platform">
+        <strong>🛵 99Food</strong>
+        <span>Encontre a Pensão Tia Miriam no 99Food</span>
+        <br><br>
+        <a class="btn btn-primary" style="display:inline-block;padding:10px 16px" href="https://oia.99app.com/dlp9bf0GCw?share_media=watsapp" target="_blank" rel="noopener">Pedir pelo 99Food</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="empresas">
+  <div class="about" style="background:linear-gradient(135deg,#fffaf0,#f4e4c6)">
+    <div>
+      <div class="kicker">Atendimento para empresas</div>
+      <h2>Pedidos para equipes, obras e empresas</h2>
+      <p>Empresas, empreiteiras, equipes de obras e outros negócios podem entrar em contato para solicitar <b>orçamentos de refeições em quantidade</b> e pacotes personalizados.</p>
+      <p>Podemos avaliar a quantidade de refeições, frequência dos pedidos, opções do cardápio e outras necessidades para montar uma proposta de acordo com cada empresa.</p>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:82px">👷‍♀️🍛📦</div>
+      <a class="btn btn-primary" href="https://wa.me/5521960178444?text=Ol%C3%A1%2C%20Pensão%20Tia%20Miriam!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20refei%C3%A7%C3%B5es%20em%20quantidade%20para%20uma%20empresa%2Fequipe." target="_blank">📲 Solicitar orçamento pelo WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer id="contato">
+  <div class="footer-inner">
+    <div><h3>Pensão Tia Miriam</h3><div class="small">Comida caseira com sabor de praia.<br>Recreio dos Bandeirantes — Rio de Janeiro/RJ</div></div>
+    <div><h3>Contato</h3><div class="small">📱 (21) 96017-8444<br>📍 Estrada do Pontal, 6330</div></div>
+    <div><h3>Pedidos</h3><div class="small">Para entrega, peça pelo iFood ou 99Food.<br>Para empresas, solicite um orçamento.</div><br><a class="btn btn-primary" href="https://wa.me/5521960178444" target="_blank">Falar no WhatsApp</a></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+const produtos = [
+ {id:'alcatra',nome:'Bife de alcatra',img:'images/bife-alcatra.jpg'},
+ {id:'carre',nome:'Carne suína (carré)',img:'images/carre.jpg'},
+ {id:'figado',nome:'Isca de fígado acebolada',img:'images/figado.jpg'},
+ {id:'peixe',nome:'Filé de peixe frito',img:'images/peixe-frito.jpg'},
+ {id:'frango-grelhado',nome:'Filé de frango grelhado',img:'images/frango-grelhado.jpg'},
+ {id:'frango-empanado',nome:'Filé de frango empanado',img:'images/frango-empanado.jpg'},
+ {id:'omelete',nome:'Omelete',img:'images/omelete.jpg'}
+];
+function renderMenu(){
+ const el=document.getElementById('menu');
+ el.innerHTML=produtos.map(p=>`
+ <article class="card">
+   ${p.img ? `<img src="${p.img}" alt="${p.nome}">` : `<div class="no-photo">🍽️</div>`}
+   <div class="card-body"><h3>${p.nome}</h3></div>
+ </article>`).join('');
+}
+renderMenu();
+</script>
+</body>
+</html>

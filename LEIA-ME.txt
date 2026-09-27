@@ -1,0 +1,24 @@
+PENSÃO TIA MIRIAM — SITE
+
+Como testar:
+1. Extraia o arquivo ZIP.
+2. Abra o arquivo index.html no computador.
+3. O cardápio funciona sem servidor e o botão de pedido abre o WhatsApp.
+
+Número configurado:
+(21) 96017-8444
+
+Endereço:
+Estrada do Pontal, 6330 — Recreio dos Bandeirantes — Rio de Janeiro/RJ
+
+Próximos ajustes possíveis:
+- acrescentar preços e fotos dos itens sem foto;
+- configurar horário de funcionamento;
+- incluir taxa de entrega por bairro;
+- colocar Instagram;
+- publicar em um endereço próprio (ex.: pensãotiamiriam.com.br).
+
+Plataformas: Pensão Tia Miriam também está no iFood e 99Food.
+
+Link direto do 99Food:
+https://oia.99app.com/dlp9/bf0GCw?share_media=WHATSAPP
